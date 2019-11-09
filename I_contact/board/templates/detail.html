@@ -7,7 +7,15 @@
 <p>작성자: {{board.writer}}</p>
 <h3>본문</h3>
 <p>{{board.body}}</p>
-
+{% if user.is_authenticated %}
+<form action="{% url 'like' board.id %}" method="get">
+    <input type="hidden" name='like' value="{{user}}">
+    <button  type="submit">좋아요</button>
+</form>
+{% endif %}
+<br>
+<h3>like:{{like_count}}</h3>
+<br>
 <a href="{% url 'board' %}"> go list </a>
 <a href = "{% url 'edit' board.id%}"> 수정하기 </a>
 <a href="{% url 'delete' board.id%}">삭제하기</a>
