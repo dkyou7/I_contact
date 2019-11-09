@@ -16,10 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 import board.views
+import reward.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', board.views.home, name ="home"),
+    path('', reward.views.home, name ="home"),
     path('board/', include('board.urls')),
     path('login/', include('login.urls')),
     path('reward/', include('reward.urls')),

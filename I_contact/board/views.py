@@ -4,9 +4,9 @@ from django.utils import timezone
 
 # Create your views here.
 
-def home(request):
+def board(request):
     board = Board.objects
-    return render(request,'home.html',{'boards':board})
+    return render(request,'board.html',{'boards':board})
 
 def detail(request, board_id):
     board_detail = get_object_or_404(Board, pk = board_id )
@@ -38,4 +38,4 @@ def update(request, board_id):
 def delete(request, board_id):
     delete_board = Board.objects.get(id=board_id)
     delete_board.delete()
-    return redirect('home')
+    return redirect('board')
