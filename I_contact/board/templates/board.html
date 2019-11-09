@@ -1,14 +1,12 @@
 {% extends 'base.html' %}
+
+{% load staticfiles %}
 {% block content %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
+
+<div class="container">
+        <div class="row">
+            <div class="col">
+
     <h1>
         청원게시판
     </h1>
@@ -37,4 +35,16 @@
     </table>
 </body>
 </html>
+    {%for board in boards.all%}
+    <div class ="container">
+    <a href ="{% url 'detail' board.id%}"><h2>{{board.title}}</h2></a>
+       {{board.date}}
+       {{board.writer}}
+    </div>
+    {%endfor%}
+    
+
+</div>
+</div>
+</div>
 {% endblock %}
