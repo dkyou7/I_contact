@@ -8,8 +8,12 @@ from django.contrib import auth
 
 def signup(request):
     if request.method=='POST':
-        if request.POST['password1']==request.POST['password2']:
-            user = User.objects.create_user(request.POST['username'], password = request.POST['password1'])
+        if request.POST.get('password1')==request.POST.get('password2'):
+            user = User.objects.create_user(request.POST.get('username'), password = request.POST.get('password1'))
+            profile = Profile()
+            profile.name = request.POST.get('name')
+            profile.user = user
+            profile.save()
             auth.login(request, user)
             return redirect('home')
     return render(request,'signup.html')
@@ -33,6 +37,7 @@ def logout(request):
         return redirect('home')
     return render(request,'signup.html')
 
-# def profile(request, user_id):
-#     profile = get_object_or_404(Profile, pk = user_id)
-#     return render(request, 'login/profile.html',{'profile':profile})
+def profile(request, user_id):
+    profile_user = User.objects.get(id=user_id)
+    profile = get_object_or_404(Profile, user = profile_user)
+    return render(request, 'profile.html',{'profile':profile})
