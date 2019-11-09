@@ -1,3 +1,5 @@
+{% extends 'base.html' %}
+{% block content %}
 <h1>detail</h1>
 
 <h3>제목: {{board.title}}</h3>
@@ -5,7 +7,15 @@
 <p>작성자: {{board.writer}}</p>
 <h3>본문</h3>
 <p>{{board.body}}</p>
-
+{% if user.is_authenticated %}
+<form action="{% url 'like' board.id %}" method="get">
+    <input type="hidden" name='like' value="{{user}}">
+    <button  type="submit">좋아요</button>
+</form>
+{% endif %}
+<br>
+<h3>like:{{like_count}}</h3>
+<br>
 <a href="{% url 'board' %}"> go list </a>
 <a href = "{% url 'edit' board.id%}"> 수정하기 </a>
 <a href="{% url 'delete' board.id%}">삭제하기</a>
@@ -17,10 +27,14 @@
    <div class ='container'>
     <p>작성자:{{comment.writer}}</p>
     <p>내용:{{comment.content}}</p>
+    {% if user.is_authenticated %}
+    <a href="{% url 'delete_comment' comment.id%}">삭제하기</a>
+    {% endif %}
    </div>
  
 {% endfor %}
 <br>
+{% if user.is_authenticated %}
 <form action="{% url 'new_comment' board.id%}" method = "POST">
         {% csrf_token %}
         <div >
@@ -33,4 +47,6 @@
             </div>
 
 </form>
+{% endif %}
 <br>
+{% endblock %}
