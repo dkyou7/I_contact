@@ -16,7 +16,7 @@ def detail(request, board_id):
     user = request.user
     if user.is_authenticated: 
         profile = get_object_or_404(Profile, user = user)
-        return render(request, 'detail.html',{'board':board_detail,'comments':comments, 'profile':profile})
+        return render(request, 'detail.html',{'board':board_detail,'comments':comments, 'profile':profile, 'like_count':board_detail.total_likes})
     else:
         return render(request, 'detail.html',{'board':board_detail,'comments':comments, 'profile':'anonymous'})
         
@@ -77,3 +77,12 @@ def delete_comment(request, comment_id):
 
     return redirect('detail',d_comment.post.pk)
 
+def like(request,board_id):
+    board =get_object_or_404(Board, pk = board_id)
+    if board.user.filter(username=request.user.username).exists():
+        board.user.remove(request.user)    
+    else:
+        board.user.add(request.user)
+       
+    board.save()
+    return redirect('detail', board_id)
