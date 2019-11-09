@@ -21,5 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', board.views.home, name ="home"),
     path('board/', include('board.urls')),
+    path('login/', include('login.urls')),
+    path('reward/', include('reward.urls')),
 
 ]
