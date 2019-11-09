@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!doctype html>
 <html lang="en">
   <head>
@@ -7,54 +8,55 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- custom -->
+    <link href='{% static "css/base.css" %}' rel="stylesheet">
 
     <title>I_contact</title>
   </head>
        <body>
     
     <div id="wrapper">
-
     <div id="header">
         <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <nav class="navbar navbar-expand-lg navbar-light fixed-top"style="background-color: #fec8c9;">
       <div class="container">
-        <a class="navbar-brand" href="#">I Contact</a>
+        <a class="navbar-brand" href="http://localhost:8000/">I CONTACT</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="{% url 'board' %}">청원하기
+              <a class="nav-link" href="{% url 'board' %}">board
                 <span class="sr-only">(current)</span>
               </a>
             </li>
             {% if not user.is_authenticated %}
       
             <li class="nav-item active">
-              <a class="nav-link" href="{% url 'login'%}">로그인
+              <a class="nav-link" href="{% url 'login'%}">SignIn
                 <span class="sr-only">(current)</span>
               </a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="{% url 'signup'%}">회원가입
+              <a class="nav-link" href="{% url 'signup'%}">SignUp
                 <span class="sr-only">(current)</span>
               </a>
             </li>
             {% else %}
             <li class="nav-item active">
-              <a class="nav-link" href="{% url 'new_reward' %}">관리자전용글작성
+              <a class="nav-link" href="{% url 'new_reward' %}">admin
                 <span class="sr-only">(current)</span>
               </a>
             </li>
             <li class="nav-item active">
               <form action="{% url 'logout'%}" method="post" id='logout'>
                 {% csrf_token %}
-                  <input type="submit" value="로그아웃">
+                  <input type="submit" value='logout'>
               </form>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="{% url 'profile' user.id%}">프로필보기
+                <a class="nav-link" href="{% url 'profile' user.id%}">profile
                   <span class="sr-only">(current)</span>
                   </a>
                 </a>
@@ -66,17 +68,23 @@
       </div>
     </nav>
     </div>
+    <br/><br/><br/>
        
-    <div class="container">
+    <!-- <div class="container"> -->
       
         {% block content %}
         {% endblock %}
         
-    </div>
+    <!-- </div> -->
     
-    <div id="footer"></div>
-    
-    </div>
+      <!-- Footer -->
+  <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+  
 
 
 
