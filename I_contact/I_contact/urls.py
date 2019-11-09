@@ -23,5 +23,6 @@ urlpatterns = [
     path('board/', include('board.urls')),
     path('login/', include('login.urls')),
     path('reward/', include('reward.urls')),
+    path('each_funding/', include('each_funding.urls')),
 
 ]
