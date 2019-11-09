@@ -14,9 +14,12 @@ def detail(request, board_id):
     board_detail = get_object_or_404(Board, pk = board_id )
     comments = Comments.objects.filter(post = board_id)
     user = request.user
-    profile = get_object_or_404(Profile, user = user)
-    return render(request, 'detail.html',{'board':board_detail,'comments':comments, 'profile':profile})
-
+    if user.is_authenticated: 
+        profile = get_object_or_404(Profile, user = user)
+        return render(request, 'detail.html',{'board':board_detail,'comments':comments, 'profile':profile})
+    else:
+        return render(request, 'detail.html',{'board':board_detail,'comments':comments, 'profile':'anonymous'})
+        
 
 def new(request):
     return render(request,'new.html')
@@ -31,7 +34,12 @@ def create(request):
 
 def edit(request,board_id):
     edit_board = Board.objects.get(id=board_id)
-    return render(request, 'edit.html',{'board':edit_board})
+    user = request.user
+    profile = get_object_or_404(Profile, user = user)
+    if edit_board.writer == profile:
+        return render(request, 'edit.html',{'board':edit_board})
+    else:
+        return redirect('detail',board_id)
 
 def update(request, board_id):
     update_board = Board.objects.get (id = board_id)
@@ -42,8 +50,13 @@ def update(request, board_id):
 
 def delete(request, board_id):
     delete_board = Board.objects.get(id=board_id)
-    delete_board.delete()
-    return redirect('board')
+    user = request.user
+    profile = get_object_or_404(Profile, user = user)
+    if delete_board.writer == profile:
+        delete_board.delete()
+        return redirect('board')
+    else:
+        return redirect('detail',board_id)
 
 def new_comment(request, detail_id):
     comment = Comments()
@@ -54,4 +67,13 @@ def new_comment(request, detail_id):
     comment.post = get_object_or_404( Board, pk= detail_id)
     comment.save()
     return redirect('detail',detail_id)
+
+def delete_comment(request, comment_id):
+    d_comment = Comments.objects.get(id=comment_id) 
+    user = request.user
+    profile = get_object_or_404(Profile, user = user)
+    if d_comment.writer == profile:
+        d_comment.delete()
+
+    return redirect('detail',d_comment.post.pk)
 

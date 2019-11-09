@@ -1,3 +1,5 @@
+{% extends 'base.html' %}
+{% block content %}
 <h1>detail</h1>
 
 <h3>제목: {{board.title}}</h3>
@@ -17,10 +19,14 @@
    <div class ='container'>
     <p>작성자:{{comment.writer}}</p>
     <p>내용:{{comment.content}}</p>
+    {% if user.is_authenticated %}
+    <a href="{% url 'delete_comment' comment.id%}">삭제하기</a>
+    {% endif %}
    </div>
  
 {% endfor %}
 <br>
+{% if user.is_authenticated %}
 <form action="{% url 'new_comment' board.id%}" method = "POST">
         {% csrf_token %}
         <div >
@@ -33,4 +39,6 @@
             </div>
 
 </form>
+{% endif %}
 <br>
+{% endblock %}
