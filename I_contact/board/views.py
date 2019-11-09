@@ -1,6 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Board
+from .models import *
 from django.utils import timezone
+from login.models import Profile
+from django.contrib.auth.models import User
 
 # Create your views here.
 
@@ -10,7 +12,10 @@ def board(request):
 
 def detail(request, board_id):
     board_detail = get_object_or_404(Board, pk = board_id )
-    return render(request, 'detail.html',{'board':board_detail})
+    comments = Comments.objects.filter(post = board_id)
+    user = request.user
+    profile = get_object_or_404(Profile, user = user)
+    return render(request, 'detail.html',{'board':board_detail,'comments':comments, 'profile':profile})
 
 
 def new(request):
@@ -39,3 +44,14 @@ def delete(request, board_id):
     delete_board = Board.objects.get(id=board_id)
     delete_board.delete()
     return redirect('board')
+
+def new_comment(request, detail_id):
+    comment = Comments()
+    user = request.user
+    profile = get_object_or_404(Profile, user = user)
+    comment.writer = profile
+    comment.content = request.POST['content']
+    comment.post = get_object_or_404( Board, pk= detail_id)
+    comment.save()
+    return redirect('detail',detail_id)
+
