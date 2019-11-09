@@ -1,3 +1,5 @@
+{% extends 'base.html' %}
+{% block content %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +12,9 @@
     <h1>
         청원게시판
     </h1>
+    {% if user.is_authenticated %}
     <a href="{% url 'new' %}">글 작성하기</a>
+    {% endif %}
     {%for board in boards.all%}
     <div class ="container">
     <a href ="{% url 'detail' board.id%}"><h2>{{board.title}}</h2></a>
@@ -21,3 +25,4 @@
     
 </body>
 </html>
+{% endblock %}
