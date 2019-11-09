@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+  
+  <!-- Page Content -->
+  <div class="container">
+        <div class="row">
+                <div class="col-lg-12">
+<h1>컨탠츠 생성하기</h1>
+
+<form action="{%url 'create_reward'%}" method = "POST">
+        {% csrf_token %}
+        제목 : <input type="text" name = 'title'>
+        <br>
+        <br>
+        본문: <textarea name="body" id="" cols="130" rows="10" placeholder="글을 작성해 주세요">
+        </textarea>
+        <br>
+        <br>
+       <button type ="submit">작성하기</button>
+      
+      </form>
+      </div>
+      </div>
+      </div>
+
+{% endblock %}

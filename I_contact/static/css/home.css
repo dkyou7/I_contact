@@ -1,0 +1,63 @@
+/*!
+ * Start Bootstrap - Shop Homepage (https://startbootstrap.com/template-overviews/shop-homepage)
+ * Copyright 2013-2019 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-shop-homepage/blob/master/LICENSE)
+ */
+ 
+ @import url('https://fonts.googleapis.com/css?family=Francois+One&display=swap');
+
+ @import url('https://fonts.googleapis.com/css?family=McLaren&display=swap');
+ @import url('https://fonts.googleapis.com/css?family=Noto+Serif+KR&display=swap');
+
+
+ body {
+  padding-top: 56px;
+  font-family: 'Noto Serif KR', serif;
+}
+
+.main {
+  font-size : 10rem;
+  font-family: 'McLaren', cursive;
+}
+
+h1{
+  font-family: 'Francois One', sans-serif;
+  font-size : 3em;
+  padding : 1em;
+  color : #444f59;
+}
+
+#pink{
+  color : #fd999a;
+}
+
+#backPink{
+  color : #fd999a;
+}
+
+#darkpink{
+  color : #e85a71
+}
+
+.num{
+  color : darkred
+}
+
+a{
+  text-decoration: none;
+  color : black;
+  font-weight: bold;
+}
+
+a:hover{
+  text-decoration: none;
+  color : black;
+  font-weight: bold;
+  opacity: 0.6;
+}
+
+
+.navbar-default {
+  background-color: #F8F8F8;
+  border-color: #E7E7E7;
+}

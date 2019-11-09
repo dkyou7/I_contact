@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+  
+  <!-- Page Content -->
+  <div class="container">
+        <div class="row">
+                <div class="col-lg-12">
+<h1>detail_reward</h1>
+
+<h3>제목: {{reward.title}}</h3>
+<p> 날짜: {{reward.date}}</p>
+<p>작성자: {{reward.writer}}</p>
+<h3>본문</h3>
+<p>{{reward.body}}</p>
+
+<a href="{% url 'home' %}"> go list </a>
+<a href = "{% url 'edit' reward.id%}"> 수정하기 </a>
+<a href="{% url 'delete' reward.id%}">삭제하기</a>
+<br>
+<br>
+</div>
+</div>
+</div>
+
+{% endblock %}

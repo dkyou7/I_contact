@@ -1,0 +1,152 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+
+  <!-- Page Content -->
+  <div class="container">
+
+    <div class="row">
+
+      <!-- Post Content Column -->
+      <div class="col-lg-8">
+
+        <!-- Title -->
+        <h1 class="mt-4">핵꿀잼 콘텐츠 같이 찍을 사람</h1>
+
+        <!-- Author -->
+        <p class="lead">
+          by
+          <a href="#">붓다</a>
+        </p>
+
+        <hr>
+
+        <!-- Date/Time -->
+        <p>2019년 11월 10일부터 2019년 12월 10일까지</p>
+
+        <hr>
+
+        <!-- Sponsorship rate -->
+        <!-- success -> green, warning -> orange, danger -> red -->
+        <div class="progress">
+          <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+            <span class="sr-only">40% Complete (success)</span>
+          </div>
+        </div>
+        <hr>
+        <!-- Preview Image -->
+        <img class="img-fluid rounded" src="http://placehold.it/900x300" alt="">
+
+        <hr>
+
+        <!-- Post Content -->
+        <div class="text-center">
+        <p class="lead">핵꿀잼 콘텐츠 참가자 한 명 구함</p>
+        <p class="lead">핵꿀잼 콘텐츠 참가자 한 명 구함</p>
+        <p class="lead">핵꿀잼 콘텐츠 참가자 한 명 구함</p>
+        <p class="lead">핵꿀잼 콘텐츠 참가자 한 명 구함</p>
+        <p class="lead">핵꿀잼 콘텐츠 참가자 한 명 구함</p>
+        <p class="lead">핵꿀잼 콘텐츠 참가자 한 명 구함</p>
+        <p class="lead">핵꿀잼 콘텐츠 참가자 한 명 구함</p>
+        <p class="lead">핵꿀잼 콘텐츠 참가자 한 명 구함</p>
+        </div>
+        <hr>
+      </div>
+      
+      <!-- Sidebar Widgets Column -->
+      <div class="col-md-4">
+
+        <!-- Side Widget -->
+        <div class="card my-4">
+          <h5 class="card-header">후원 리워드</h5>
+          <div class="card-body">
+            천 원은 응모권 한 장 줍니다 <br>
+            <img class="img-fluid rounded" src="http://placehold.it/900x300" alt=""><hr>
+            만 원은 두 장 줍니다 <br>
+            <img class="img-fluid rounded" src="http://placehold.it/900x300" alt=""><hr>
+            십만 원은 세 장 줍니다 <br>
+            <img class="img-fluid rounded" src="http://placehold.it/900x300" alt=""><hr>
+            백만 원은 네 장 줍니다 <br>
+            <img class="img-fluid rounded" src="http://placehold.it/900x300" alt=""><hr>
+            1억 원은 다섯 장 줍니다 <br> 
+            <img class="img-fluid rounded" src="http://placehold.it/900x300" alt="">
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    <!-- /.row -->
+
+    <!-- 댓글창  -->
+    <div class="col-lg-12">
+    <!-- Comments Form -->
+        <div class="card my-4">
+          <h5 class="card-header">댓글 남기기:</h5>
+          <div class="card-body">
+            <form>
+              <div class="form-group">
+                <textarea class="form-control" rows="3"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">등록</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Single Comment -->
+        <div class="media mb-4">
+          <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+          <div class="media-body">
+            <h5 class="mt-0">만득이</h5>
+            후원합니다. 무조건 내가 되기를....
+          </div>
+        </div>
+
+        <!-- Comment with nested comments -->
+        <div class="media mb-4">
+          <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+          <div class="media-body">
+            <h5 class="mt-0">영심이</h5>
+            돈 없는 학생이라 댓글로나마 콘텐츠 응원합니다!
+
+            <div class="media mt-4">
+              <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+              <div class="media-body">
+                <h5 class="mt-0">땡칠이</h5>
+                티켓 5장 존버합니다
+              </div>
+            </div>
+
+            <div class="media mt-4">
+              <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+              <div class="media-body">
+                <h5 class="mt-0">봉삼이</h5>
+                제발 돼라!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+              </div>
+            </div>
+
+          </div>
+        </div>
+    </div>
+  </div>
+  <!-- /.container -->
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src='{% static "vendor/jquery/jquery.min.js" %}'></script>
+  <script src='{% static "vendor/bootstrap/js/bootstrap.bundle.min.js" %}'></script>
+
+
+</body>
+
+</html>
+
+{% endblock %}

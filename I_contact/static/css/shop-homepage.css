@@ -1,0 +1,18 @@
+/*!
+ * Start Bootstrap - Shop Homepage (https://startbootstrap.com/template-overviews/shop-homepage)
+ * Copyright 2013-2019 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-shop-homepage/blob/master/LICENSE)
+ */
+ @import url('https://fonts.googleapis.com/css?family=McLaren&display=swap');
+ @import url('https://fonts.googleapis.com/css?family=Noto+Serif+KR&display=swap');
+
+
+ body {
+  padding-top: 56px;
+  font-family: 'Noto Serif KR', serif;
+}
+
+.main {
+  font-size : 10rem;
+  font-family: 'McLaren', cursive;
+}

@@ -1,0 +1,22 @@
+{% load staticfiles %}
+<head>
+    <link rel="stylesheet" href="{% static 'css/login.css'%}">
+</head>
+<div class="login_container">
+    <h1>Login!</h1>
+
+    <form method="POST", action="{% url 'login'%}">
+        {% csrf_token%}
+        Username:
+        <br>
+        <input name="username" type="text" value="">
+        <br>
+        Password:
+        <br>
+        <input name="password" type="password" value="">
+        <br>
+        <br>
+        <button class="btn btn-primary" type="submit" value="Login">Login</button>
+        <button class="cancelbtn" type="submit">뒤로가기</button>
+    </form>
+</div>
