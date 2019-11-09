@@ -35,15 +35,6 @@
     </table>
 </body>
 </html>
-    {%for board in boards.all%}
-    <div class ="container">
-    <a href ="{% url 'detail' board.id%}"><h2>{{board.title}}</h2></a>
-       {{board.date}}
-       {{board.writer}}
-    </div>
-    {%endfor%}
-    
-
 </div>
 </div>
 </div>
