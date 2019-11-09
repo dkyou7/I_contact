@@ -10,7 +10,6 @@
   <meta name="author" content="">
 
   <title>Shop Homepage - Start Bootstrap Template</title>
- {% static "vendor/bootstrap/css/bootstrap.min.css" %}
 
   <!-- Bootstrap core CSS -->
   <link href= '{% static "vendor/bootstrap/css/bootstrap.min.css" %}' rel="stylesheet">
@@ -53,23 +52,16 @@
 
   <!-- Page Content -->
   <div class="container">
-
-    <div class="row">
-
-      <div class="col-lg-3">
-
-        <h1 class="my-4">Shop Name</h1>
-        <div class="list-group">
-          <a href="#" class="list-group-item">Category 1</a>
-          <a href="#" class="list-group-item">Category 2</a>
-          <a href="#" class="list-group-item">Category 3</a>
+      <div class="row">
+          <div class="col">
+            <center>
+                <h1 class = 'main'>I CONTACT</h1>
+            </center>
         </div>
-
       </div>
-      <!-- /.col-lg-3 -->
-
-      <div class="col-lg-9">
-
+  
+    <div class="row">
+      <div class="col-lg-12">
         <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
           <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -218,19 +210,12 @@
   <!-- Bootstrap core JavaScript -->
 
   <script src='{% static "vendor/jquery/jquery.min.js" %}'></script>
-  <script src='{% static "vendor/bootstrap/js/bootstrap.bundle.min.js" %'}></script>
+  <script src='{% static "vendor/bootstrap/js/bootstrap.bundle.min.js" %}'></script>
 
-  
-<!-- 
-    {% if not user.is_authenticated %}
-    <a href ="{% url 'login'%}">로그인하기</a>
-    <a href ="{% url 'signup'%}">가입하기</a>
-    {% else %}
-    <form id="logout" method="POST" action="{% url 'logout' %}">
-            {% csrf_token %} 
-            <input type="submit" value="로그아웃">
-        </form>
-    {%endif%} -->
 </body>
 
 </html>
+
+
+
+
