@@ -1,3 +1,12 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+  
+  <!-- Page Content -->
+  <div class="container">
+        <div class="row">
+                <div class="col-lg-12">
 <h1>detail_reward</h1>
 
 <h3>제목: {{reward.title}}</h3>
@@ -11,3 +20,8 @@
 <a href="{% url 'delete' reward.id%}">삭제하기</a>
 <br>
 <br>
+</div>
+</div>
+</div>
+
+{% endblock %}
