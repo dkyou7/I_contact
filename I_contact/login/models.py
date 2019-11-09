@@ -9,4 +9,7 @@ class Profile(models.Model):
     money = models.IntegerField(default = 0)
     power = models.BooleanField(default = False)
 
+    def __str__(self):
+         return self.name
+
 
